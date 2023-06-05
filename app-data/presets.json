@@ -1,0 +1,14 @@
+{
+	"presets" : 
+        {
+                "showImage": true,
+                "showBars": true,
+                "showCircles": false,
+                "showNoise": false,
+                "showInvert": false,
+                "showEmboss": false,
+                "showRandGrad": false,
+                "showWaveform": false,
+                "showBGImage": true
+        }
+}

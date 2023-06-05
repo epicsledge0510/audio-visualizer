@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Audio Visualizer</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Mada:wght@400;500&family=Pathway+Gothic+One&display=swap"
+		rel="stylesheet">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+	<link href="styles/default-styles.css" type="text/css" rel="stylesheet">
+	<script src="./src/loader.js" type="module"></script>
+	<script src="./src/web-component-1.js" type="module"></script>
+	<script src="./src/web-component-2.js" type="module"></script>
+
+</head>
+
+<body>
+	<main>
+		<nav-bar data-page="app"></nav-bar>
+		<section class="hero">
+			<canvas width="800" height="400"></canvas>
+		</section>
+		<section class="hero-body">
+			<div class="controls" id="controls">
+				<div class="container">
+					Progress: <input class="slider" type="range" id="progressSlider" min="0" max="1" value="0"
+						step="0.01" style="width: 75%">
+					<label id="playTime">Current Play Time: --(s)</label>
+
+					<div class="columns">
+						<div class="column">
+							<button class="button" id="playButton" data-playing="no"></button>
+							<button class="button" id="fsButton">Full Screen</button>
+						</div>
+						<div class="column">
+							<button class="button" id="backButton">Restart</button>
+							<button class="button" id="setRPButton">Set Reset Point</button>
+							<button class="button" id="gotoRPButton">Go To Reset Point</button>
+						</div>
+						<div class="column">
+							<label>Track:
+								<select class="select" id="trackSelect">
+									<option value="media/Nameless King.mp3" selected>Nameless King</option>
+									<option value="media/Gwyn.mp3">Gwyn, Lord of Cinder</option>
+									<option value="media/Ludwig.mp3">Ludwig, The Holy Blade</option>
+									<option value="media/melania.mp3">Melania, Blade of Miquella</option>
+								</select>
+							</label>
+						</div>
+						<div class="column">
+
+							<label for="userTrack">Choose your own! => <input class="button is-link has-background-black has-text-warning" type="file"
+									id="userTrack" accept=".wav,.mp3,.mp4,.adts,.ogg,.webm,.flac"></label>
+						</div>
+						<div class="column">
+
+							Volume: <input class="slider" type="range" id="volumeSlider" min="0" max="2" value="1"
+								step="0.01">
+							<span id="volumeLabel">???</span>
+						</div>
+					</div>
+					<br>
+					<div class="columns">
+						<div class="column">
+							<span><input class="is-checkradio" type="checkbox" id="imageCB"><label for="imageCB">Show
+									Image</label></span>
+						</div>
+						<div class="column">
+							<span><input class="is-checkradio" type="checkbox" id="backgroundCB"><label
+									for="backgroundCB">Show Background Image</label></span>
+						</div>
+						<div class="column">
+							<span><input class="is-checkradio" type="checkbox" id="waveformCB"><label
+									for="waveformCB">Show Waveform</label></span>
+						</div>
+						<div class="column">
+							<span><input class="is-checkradio" type="checkbox" id="barsCB"><label for="barsCB">Show
+									Bars</label></span>
+						</div>
+						<div class="column">
+							<span><input class="is-checkradio" type="checkbox" id="circlesCB"><label
+									for="circlesCB">Show Circles</label></span>
+						</div>
+						<div class="column">
+							<span><input class="is-checkradio" type="checkbox" id="noiseCB"><label for="noiseCB">Show
+									Noise</label></span>
+						</div>
+						<div class="column">
+							<span><input class="is-checkradio" type="checkbox" id="invertCB"><label for="invertCB">Show
+									Invert</label></span>
+						</div>
+						<div class="column">
+							<span><input class="is-checkradio" type="checkbox" id="embossCB"><label for="embossCB">Show
+									Emboss</label></span>
+						</div>
+						<div class="column">
+							<span><input class="is-checkradio" type="checkbox" id="customBarCB"><label
+									for="customBarCB">Custom Visualizer Color</label></span>
+						</div>
+						<div class="column">
+							<label for="barColorPicker">Picker:</label>
+							<input type="color" id="barColorPicker" value="#0000ff">
+						</div>
+						<div class="column">
+							<span><input class="is-checkradio" type="checkbox" id="customBGCB"><label
+									for="customBGCB">Custom Background Color</label></span>
+						</div>
+						<div class="column">
+							<label for="bgColorPicker">Picker:</label>
+							<input type="color" id="bgColorPicker" value="#000000">
+						</div>
+						<div class="column">
+							<span><input class="is-checkradio" type="checkbox" id="hShelfCB"><label for="hShelfCB">High
+									Shelf</label></span>
+						</div>
+						<div class="column">
+							<span><input class="is-checkradio" type="checkbox" id="lShelfCB"><label for="lShelfCB">Low
+									Shelf</label></span>
+						</div>
+						<div class="column">
+
+							<span><input class="is-checkradio" type="checkbox" id="hPassCB"><label for="hPassCB">High
+									Pass</label></span>
+						</div>
+						<div class="column">
+
+							<span><input class="is-checkradio" type="checkbox" id="lPassCB"><label for="lPassCB">Low
+									Pass</label></span>
+						</div>
+					</div>
+					<br>
+				</div>
+				<br>
+			</div>
+			<br>
+		</section>
+		<br>
+	</main>
+	<br>
+	<footer class = "footer">
+		<page-footer></page-footer>
+	</footer>
+</body>
+
+
+</html>
